@@ -20,13 +20,9 @@ export default class HomeScreen extends React.Component {
       <View style={styles.container}>
         <View style={styles.search}>
           <View style={{flex: 1, flexDirection: 'row',
-          justifyContent: 'space-between', marginBottom: 10}}>
-            <View>
-              <Text style={styles.cancelBtn}>Cancel</Text>
-            </View>
-            <View>
-              <Text style={styles.searchBtn}>Search</Text>
-            </View>
+          marginBottom: 10}}>
+            <Text style={styles.cancelBtn}>Cancel</Text>
+            <Text style={styles.searchBtn}>Search</Text>
           </View>
           <View style={{flex: 4}}>
             <View style={styles.searchBar}>
@@ -93,11 +89,14 @@ const styles = StyleSheet.create({
   },
   cancelBtn: {
     color: '#fff',
-    fontSize: 10
+    fontSize: 10,
+    flex: 1
   },
   searchBtn: {
     color: '#fff',
-    fontSize: 10
+    fontSize: 10,
+    flex: 1,
+    textAlign: 'right'
   },
   searchBar: {
     flex: 1,
