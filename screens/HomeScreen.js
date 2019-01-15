@@ -19,9 +19,26 @@ export default class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.search}>
-          <View style={{flexDirection: 'row'}}>
-            <Text style={styles.cancelBtn}>Cancel</Text>
-            <Text style={styles.searchBtn}>Search</Text>
+          <View style={{flex: 1, flexDirection: 'row',
+          justifyContent: 'space-between', marginBottom: 10}}>
+            <View>
+              <Text style={styles.cancelBtn}>Cancel</Text>
+            </View>
+            <View>
+              <Text style={styles.searchBtn}>Search</Text>
+            </View>
+          </View>
+          <View style={{flex: 4}}>
+            <View style={styles.searchBar}>
+              <Text style={styles.searchBarText}>Burgers</Text>
+            </View>
+            <View style={styles.searchBar}>
+              <Text style={styles.searchBarText}>
+              Financial District, Manhattan, NY</Text>
+            </View>
+            <View style={styles.searchBar}>
+              <Text style={styles.searchBarText}>Vegetarian</Text>
+            </View>
           </View>
         </View>
         <ScrollView style={styles.container, styles.pad}>
@@ -60,22 +77,32 @@ const styles = StyleSheet.create({
   },
   pad: {
     padding: 15,
+    paddingTop: 0
   },
   search: {
     backgroundColor: GREEN,
     padding: 10,
-    paddingTop: 30
+    paddingTop: 30,
+    flex: 3
   },
   cancelBtn: {
     color: '#fff',
-    fontSize: 10,
-    flex: 1
+    fontSize: 10
   },
   searchBtn: {
     color: '#fff',
-    fontSize: 10,
+    fontSize: 10
+  },
+  searchBar: {
     flex: 1,
-    alignSelf: 'flex-end'
+    borderRadius: 4,
+    backgroundColor: '#fff',
+    marginTop: 2.5,
+    marginBottom: 2.5,
+    padding: 5
+  },
+  searchBarText: {
+    fontSize: 10
   },
   title: {
     textAlign: 'center',
