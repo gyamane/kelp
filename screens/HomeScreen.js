@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Button,
   Image,
   Platform,
   ScrollView,
@@ -16,6 +17,7 @@ export default class HomeScreen extends React.Component {
   };
 
   render() {
+    const {navigate} = this.props.navigation;
     return (
       <View style={styles.container}>
         <View style={styles.search}>
@@ -46,6 +48,10 @@ export default class HomeScreen extends React.Component {
             />
           </View>
         </ScrollView>
+        <Button
+          title="Go to search results"
+          onPress={() => navigate('SearchResults')}
+        />
       </View>
     );
   }
