@@ -30,13 +30,19 @@ export default class HomeScreen extends React.Component {
           </View>
           <View style={{flex: 4}}>
             <View style={styles.searchBar}>
+              <Image source={require('../assets/images/search.png')}
+                style={styles.icon} resizeMode='contain' />
               <Text style={styles.searchBarText}>Burgers</Text>
             </View>
             <View style={styles.searchBar}>
+              <Image source={require('../assets/images/location_icon.png')}
+                style={styles.icon} resizeMode='contain' />
               <Text style={styles.searchBarText}>
               Financial District, Manhattan, NY</Text>
             </View>
             <View style={styles.searchBar}>
+              <Image source={require('../assets/images/plant_based_icon.png')}
+                style={styles.icon} resizeMode='contain' />
               <Text style={styles.searchBarText}>Vegetarian</Text>
             </View>
           </View>
@@ -99,10 +105,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     marginTop: 2.5,
     marginBottom: 2.5,
+    padding: 5,
+    flexDirection: 'row'
+  },
+  icon: {
+    flex: 1,
+    height: undefined,
+    width: undefined,
     padding: 5
   },
   searchBarText: {
-    fontSize: 10
+    flex: 8,
+    fontSize: 10,
   },
   title: {
     textAlign: 'center',
