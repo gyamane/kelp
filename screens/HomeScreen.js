@@ -18,9 +18,11 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.container, styles.pad, styles.search}>
-          <Text style={styles.action}>Cancel</Text>
-          <Text style={styles.action}>Search</Text>
+        <View style={styles.search}>
+          <View style={{flexDirection: 'row'}}>
+            <Text style={styles.cancelBtn}>Cancel</Text>
+            <Text style={styles.searchBtn}>Search</Text>
+          </View>
         </View>
         <ScrollView style={styles.container, styles.pad}>
           <Text style={styles.title}>Veggie News</Text>
@@ -57,20 +59,28 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   pad: {
-    padding: 10,
+    padding: 15,
   },
   search: {
     backgroundColor: GREEN,
-    paddingTop: 15
+    padding: 10,
+    paddingTop: 30
   },
-  action: {
+  cancelBtn: {
     color: '#fff',
-    fontSize: 11
+    fontSize: 10,
+    flex: 1
+  },
+  searchBtn: {
+    color: '#fff',
+    fontSize: 10,
+    flex: 1,
+    alignSelf: 'flex-end'
   },
   title: {
     textAlign: 'center',
     color: GREEN,
-    fontSize: 20,
+    fontSize: 25,
     margin: 10,
     fontWeight: 'bold'
   },
