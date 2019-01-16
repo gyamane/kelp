@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Text,
   View,
+  TouchableOpacity
 } from 'react-native';
 
 import { MonoText } from '../components/StyledText';
@@ -23,9 +24,13 @@ export default class HomeScreen extends React.Component {
         <View style={styles.search}>
           <View style={{flex: 1, flexDirection: 'row',
           marginBottom: 10}}>
-            <Text style={styles.cancelBtn}>Cancel</Text>
-            <Text style={styles.searchBtn}
-            onPress={() => navigate('SearchResults')}>Search</Text>
+            <TouchableOpacity style={{flex: 1}}>
+              <Text style={styles.cancelBtn}>Cancel</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={{flex: 1}}
+              onPress={() => navigate('SearchResults')}>
+              <Text style={styles.searchBtn}>Search</Text>
+            </TouchableOpacity>
           </View>
           <View style={{flex: 4}}>
             <View style={styles.searchBar}>
@@ -93,12 +98,10 @@ const styles = StyleSheet.create({
   cancelBtn: {
     color: '#fff',
     fontSize: 10,
-    flex: 1
   },
   searchBtn: {
     color: '#fff',
     fontSize: 10,
-    flex: 1,
     textAlign: 'right'
   },
   searchBar: {

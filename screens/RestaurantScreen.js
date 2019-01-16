@@ -7,7 +7,6 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableOpacity
 } from 'react-native';
 
 import { MonoText } from '../components/StyledText';
@@ -24,10 +23,9 @@ export default class SearchResultsScreen extends React.Component {
       <View style={styles.container}>
         <View style={styles.search}>
           <View style={styles.searchBar}>
-            <TouchableOpacity onPress={() => navigate('Home')} >
-              <Image source={require('../assets/images/back_button.png')}
-                style={styles.icon} resizeMode='contain' />
-            </TouchableOpacity>
+            <Image source={require('../assets/images/back_button.png')}
+              style={styles.icon} resizeMode='contain'
+              onPress={() => navigate('Home')} />
             <Text style={styles.searchBarText} onPress={() => navigate('Home')}>
               Burgers</Text>
             <Image source={require('../assets/images/plant_based_icon.png')}
