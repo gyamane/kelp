@@ -21,14 +21,19 @@ export default class SearchResultsScreen extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.search}>
-          <View style={{flexDirection: 'row'}}>
-            <Text style={styles.cancelBtn}>Cancel</Text>
-            <Text style={styles.searchBtn}>Search</Text>
+          <View style={styles.searchBar}>
+            <Image source={require('../assets/images/back_button.png')}
+              style={styles.icon} resizeMode='contain'
+              onPress={() => navigate('Home')} />
+            <Text style={styles.searchBarText} onPress={() => navigate('Home')}>
+              Burgers</Text>
+            <Image source={require('../assets/images/plant_based_icon.png')}
+                style={styles.icon} resizeMode='contain' />
+            <Text style={styles.locationText}>
+            Financial District, Manhattan, NY</Text>
           </View>
         </View>
-        <ScrollView style={styles.container, styles.pad}>
-          <Text style={styles.title}>Search Results</Text>
-
+        <ScrollView style={styles.container, styles.pad, {height: 500}}>
           <View style={styles.result}>
             <Text style = {styles.subtitle}>1. White Horse Tavern - Financial District</Text>
             <Image source={
@@ -36,7 +41,7 @@ export default class SearchResultsScreen extends React.Component {
               resizeMode='contain'
             />
             <Text style = {styles.normal}>25 Bridge St, Financial District</Text>
-            <Text style = {styles.normal}>10 items</Text>
+            <Text style = {styles.items}>10 items</Text>
             <View style={styles.line}/>
           </View>
 
@@ -47,7 +52,7 @@ export default class SearchResultsScreen extends React.Component {
               resizeMode='contain'
             />
             <Text style = {styles.normal}>25 Bridge St, Financial District</Text>
-            <Text style = {styles.normal}>10 items</Text>
+            <Text style = {styles.items}>20 items</Text>
             <View style={styles.line}/>
           </View>
 
@@ -58,15 +63,31 @@ export default class SearchResultsScreen extends React.Component {
               resizeMode='contain'
             />
             <Text style = {styles.normal}>25 Bridge St, Financial District</Text>
-            <Text style = {styles.normal}>10 items</Text>
+            <Text style = {styles.items}>10 items</Text>
             <View style={styles.line}/>
           </View>
 
+          <View style={styles.result}>
+            <Text style = {styles.subtitle}>4. Smashburger</Text>
+            <Image source={
+              require('../assets/images/yelp_ratings.jpg')} style={styles.image}
+              resizeMode='contain'
+            />
+            <Text style = {styles.normal}>25 Bridge St, Financial District</Text>
+            <Text style = {styles.items}>6 items</Text>
+            <View style={styles.line}/>
+          </View>
+          <View style={styles.result}>
+            <Text style = {styles.subtitle}>5. Bareburger</Text>
+            <Image source={
+              require('../assets/images/yelp_ratings.jpg')} style={styles.image}
+              resizeMode='contain'
+            />
+            <Text style = {styles.normal}>25 Bridge St, Financial District</Text>
+            <Text style = {styles.items}>6 items</Text>
+            <View style={styles.line}/>
+          </View>
         </ScrollView>
-        <Button
-          title="Go to back to home screen"
-          onPress={() => navigate('Home')}
-        />
       </View>
     );
   }
@@ -87,18 +108,33 @@ const styles = StyleSheet.create({
   search: {
     backgroundColor: GREEN,
     padding: 10,
-    paddingTop: 30
+    paddingTop: 30,
+    height: undefined
   },
-  cancelBtn: {
-    color: '#fff',
-    fontSize: 10,
-    flex: 1
+  searchBar: {
+    height: 40,
+    borderRadius: 4,
+    backgroundColor: '#fff',
+    marginTop: 2.5,
+    marginBottom: 2.5,
+    padding: 5,
+    flexDirection: 'row',
+    alignItems: 'center'
   },
-  searchBtn: {
-    color: '#fff',
-    fontSize: 10,
+  icon: {
     flex: 1,
-    alignSelf: 'flex-end'
+    height: 20,
+    width: undefined,
+    paddingLeft: 10,
+    paddingRight: 10
+  },
+  searchBarText: {
+    fontSize: 8,
+    paddingLeft: 10
+  },
+  locationText: {
+    fontSize: 8,
+    color: '#979797'
   },
   title: {
     textAlign: 'center',
@@ -109,23 +145,27 @@ const styles = StyleSheet.create({
   },
   result: {
     backgroundColor: WHITE,
-    height: 150,
+    height: undefined,
     marginTop: 5,
     marginBottom: 5
   },
   subtitle: {
     textAlign: 'left',
     color: BLACK,
-    fontSize: 18,
+    fontSize: 12,
     margin: 10,
-    fontWeight: 'normal'
+    fontWeight: 'bold',
+  },
+  items: {
+    color: BLACK,
+    fontSize: 10,
+    margin: 10
   },
   normal: {
     textAlign: 'left',
-    color: BLACK,
-    fontSize: 12,
-    margin: 10,
-    fontWeight: 'normal'
+    color: '#979797',
+    fontSize: 10,
+    margin: 10
   },
   image: {
     flex:1,
