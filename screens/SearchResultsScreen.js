@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 
 import { MonoText } from '../components/StyledText';
+import { SearchResult } from '../components/SearchResult';
 
 export default class SearchResultsScreen extends React.Component {
   static navigationOptions = {
@@ -34,59 +35,21 @@ export default class SearchResultsScreen extends React.Component {
           </View>
         </View>
         <ScrollView style={styles.container, styles.pad, {height: 500}}>
-          <View style={styles.result}>
-            <Text style = {styles.subtitle}>1. White Horse Tavern - Financial District</Text>
-            <Image source={
-              require('../assets/images/yelp_ratings.jpg')} style={styles.image}
-              resizeMode='contain'
-            />
-            <Text style = {styles.normal}>25 Bridge St, Financial District</Text>
-            <Text style = {styles.items}>10 items</Text>
-            <View style={styles.line}/>
-          </View>
-
-          <View style={styles.result}>
-            <Text style = {styles.subtitle}>2. Shake Shack</Text>
-            <Image source={
-              require('../assets/images/yelp_ratings.jpg')} style={styles.image}
-              resizeMode='contain'
-            />
-            <Text style = {styles.normal}>25 Bridge St, Financial District</Text>
-            <Text style = {styles.items}>20 items</Text>
-            <View style={styles.line}/>
-          </View>
-
-          <View style={styles.result}>
-            <Text style = {styles.subtitle}>3. The Ainsworth - FiDi</Text>
-            <Image source={
-              require('../assets/images/yelp_ratings.jpg')} style={styles.image}
-              resizeMode='contain'
-            />
-            <Text style = {styles.normal}>25 Bridge St, Financial District</Text>
-            <Text style = {styles.items}>10 items</Text>
-            <View style={styles.line}/>
-          </View>
-
-          <View style={styles.result}>
-            <Text style = {styles.subtitle}>4. Smashburger</Text>
-            <Image source={
-              require('../assets/images/yelp_ratings.jpg')} style={styles.image}
-              resizeMode='contain'
-            />
-            <Text style = {styles.normal}>25 Bridge St, Financial District</Text>
-            <Text style = {styles.items}>6 items</Text>
-            <View style={styles.line}/>
-          </View>
-          <View style={styles.result}>
-            <Text style = {styles.subtitle}>5. Bareburger</Text>
-            <Image source={
-              require('../assets/images/yelp_ratings.jpg')} style={styles.image}
-              resizeMode='contain'
-            />
-            <Text style = {styles.normal}>25 Bridge St, Financial District</Text>
-            <Text style = {styles.items}>6 items</Text>
-            <View style={styles.line}/>
-          </View>
+          <SearchResult styles = {styles}
+                        name = '1. White Horse Tavern'
+                        address = '25 Bridge St, Financial District'
+                        num_items = '10'
+                        />
+          <SearchResult styles = {styles}
+                        name = '2. Shake Shack'
+                        address = '25 Bridge St, Financial District'
+                        num_items = '20'
+                        />
+          <SearchResult styles = {styles}
+                        name = '3. The Ainsworth - FiDi'
+                        address = '25 Bridge St, Financial District'
+                        num_items = '5'
+                        />
         </ScrollView>
       </View>
     );
@@ -152,7 +115,7 @@ const styles = StyleSheet.create({
   subtitle: {
     textAlign: 'left',
     color: BLACK,
-    fontSize: 12,
+    fontSize: 20,
     margin: 10,
     fontWeight: 'bold',
   },
