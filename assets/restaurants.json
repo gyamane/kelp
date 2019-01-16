@@ -12,14 +12,24 @@
       "num_items": "20",
     },
     {
-      "name": "3. Trinity Place",
-      "address": "115 Broadway, Financial District",
-      "num_items": "9",
-    },
-    {
-      "name": "4. The Ainsworth - FiDi",
+      "name": "3. The Ainsworth - FiDi",
       "address": "121 Fulton St, Financial District",
       "num_items": "5",
+    },
+    {
+      "name": "4. Smashburger",
+      "address": "136 William St, New York, NY 10038",
+      "num_items": "10",
+    },
+    {
+      "name": "5. Bareburger",
+      "address": "155 William St, New York, NY 10038",
+      "num_items": "7",
+    },
+    {
+      "name": "6. Trinity Place",
+      "address": "115 Broadway, Financial District",
+      "num_items": "9",
     },
   ]
 }

@@ -50,6 +50,16 @@ export default class SearchResultsScreen extends React.Component {
                         address = '25 Bridge St, Financial District'
                         num_items = '5'
                         />
+          <SearchResult styles = {styles}
+                        name = '3. The Ainsworth - FiDi'
+                        address = '25 Bridge St, Financial District'
+                        num_items = '5'
+                        />
+          <SearchResult styles = {styles}
+                        name = '3. The Ainsworth - FiDi'
+                        address = '25 Bridge St, Financial District'
+                        num_items = '5'
+                        />
         </ScrollView>
       </View>
     );
@@ -99,40 +109,30 @@ const styles = StyleSheet.create({
     fontSize: 8,
     color: '#979797'
   },
-  title: {
-    textAlign: 'center',
-    color: GREEN,
-    fontSize: 25,
-    margin: 10,
-    fontWeight: 'bold'
-  },
   result: {
     backgroundColor: WHITE,
     height: undefined,
-    marginTop: 5,
-    marginBottom: 5
+    margin: 10,
   },
   subtitle: {
     textAlign: 'left',
     color: BLACK,
-    fontSize: 20,
-    margin: 10,
+    fontSize: 12,
     fontWeight: 'bold',
   },
   items: {
     color: BLACK,
     fontSize: 10,
-    margin: 10
+    marginBottom: 10
   },
   normal: {
     textAlign: 'left',
     color: '#979797',
     fontSize: 10,
-    margin: 10
+    marginBottom: 10
   },
   image: {
-    flex:1,
-    height: undefined,
+    height: 40,
     width: undefined,
   },
   line:{
