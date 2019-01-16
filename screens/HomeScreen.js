@@ -24,7 +24,8 @@ export default class HomeScreen extends React.Component {
           <View style={{flex: 1, flexDirection: 'row',
           marginBottom: 10}}>
             <Text style={styles.cancelBtn}>Cancel</Text>
-            <Text style={styles.searchBtn}>Search</Text>
+            <Text style={styles.searchBtn}
+            onPress={() => navigate('SearchResults')}>Search</Text>
           </View>
           <View style={{flex: 4}}>
             <View style={styles.searchBar}>
@@ -67,10 +68,6 @@ export default class HomeScreen extends React.Component {
             />
           </View>
         </ScrollView>
-        <Button
-          title="Go to search results"
-          onPress={() => navigate('SearchResults')}
-        />
       </View>
     );
   }
