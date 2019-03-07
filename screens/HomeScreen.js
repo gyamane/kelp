@@ -21,7 +21,9 @@ export default class HomeScreen extends React.Component {
     const {navigate} = this.props.navigation;
     return (
       <View style={styles.container}>
+        {/* SEARCH SECTION ON THE TOP */}
         <View style={styles.search}>
+          {/* CANCEL BUTTON AND SEARCH BUTTON */}
           <View style={{flex: 1, flexDirection: 'row',
           marginBottom: 10}}>
             <TouchableOpacity style={{flex: 1}}>
@@ -32,7 +34,8 @@ export default class HomeScreen extends React.Component {
               <Text style={styles.searchBtn}>Search</Text>
             </TouchableOpacity>
           </View>
-          <View style={{flex: 4}}>
+
+          <View style={{flex: 3}}>
             <View style={styles.searchBar}>
               <Image source={require('../assets/images/search.png')}
                 style={styles.icon} resizeMode='contain' />
@@ -51,7 +54,9 @@ export default class HomeScreen extends React.Component {
             </View>
           </View>
         </View>
-        <ScrollView style={styles.container, styles.pad}>
+
+        {/* NEWS SECTION ON BOTTOM */}
+        <ScrollView style={styles.news, styles.pad}>
           <Text style={styles.title}>Veggie News</Text>
           <View style={styles.promotion}>
             <Image source={
@@ -93,15 +98,19 @@ const styles = StyleSheet.create({
     backgroundColor: GREEN,
     padding: 10,
     paddingTop: 30,
-    flex: 3
+    flex: 1
   },
   cancelBtn: {
+    marginTop: 20,
+    marginLeft: 10,
     color: '#fff',
-    fontSize: 10,
+    fontSize: 17,
   },
   searchBtn: {
+    marginTop: 20,
+    marginRight: 10,
     color: '#fff',
-    fontSize: 10,
+    fontSize: 17,
     textAlign: 'right'
   },
   searchBar: {
@@ -140,5 +149,9 @@ const styles = StyleSheet.create({
     flex:1,
     height: undefined,
     width: undefined,
+  },
+  news: {
+    color: '#fff',
+    flex: 1
   }
 });
