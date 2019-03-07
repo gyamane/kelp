@@ -18,7 +18,9 @@ export default class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pickerValue:''
+      dietSelection:'vegan',
+      veganFontWeight: 'normal',
+      vegetarianFontWeight: 'normal'
     }
   }
   static navigationOptions = {
@@ -63,18 +65,9 @@ export default class HomeScreen extends React.Component {
               />
             </View>
             <View style={styles.searchBar}>
-              <Image source={require('../assets/images/plant_based_icon.png')}
-                style={styles.icon} resizeMode='contain' />
-              <Picker
-                selectedValue={this.state.pickerValue}
-                style={styles.searchBarText}
-                onValueChange={(itemValue, itemIndex) =>
-                    this.setState({pickerValue: itemValue})
-                }>
-                <Picker.Item label="Select an Option" value=""/>
-                <Picker.Item label="Vegetarian" value="vegetarian" />
-                <Picker.Item label="Vegan" value="vegan" />
-              </Picker>
+              <Text style={styles.dietSelectionText}>Diet Selection:</Text>
+              <Text style={[styles.veganText, styles.bold]}>Vegan</Text>
+              <Text style={styles.vegetarianText}>Vegetarian</Text>
             </View>
           </View>
         </View>
@@ -104,6 +97,18 @@ export default class HomeScreen extends React.Component {
         </ScrollView>
       </View>
     );
+  }
+
+  veganSelection = () => {
+    this.setState({dietSelection: 'vegan'});
+    this.setState({veganFontWeight: 'bold'});
+    this.setState({vegetarianFont: 'normal'})
+  }
+
+  vegetarianSelection = () => {
+    this.setState({dietSelection: 'vegetarian'});
+    this.setState({veganFontWeight: 'normal'});
+    this.setState({vegetarianFont: 'bold'})
   }
 }
 
@@ -177,5 +182,29 @@ const styles = StyleSheet.create({
   veggieNews: {
     color: '#fff',
     flex: 1
+  },
+  dietSelectionText: {
+    flex: 1,
+    padding: 5,
+    fontSize: 15,
+    marginLeft: 8
+  },
+  veganText: {
+    flex: 1,
+    fontSize: 15,
+    marginTop: 5,
+    textAlign: 'center'
+  },
+  vegetarianText: {
+    flex: 1,
+    fontSize: 15,
+    marginTop: 5,
+    textAlign: 'center'
+  },
+  bold: {
+    fontWeight: 'bold'
+  },
+  normal: {
+    fontWeight: 'normal'
   }
 });
