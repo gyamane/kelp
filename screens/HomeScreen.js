@@ -7,12 +7,20 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableOpacity
+  TouchableOpacity,
+  TextInput,
+  Picker
 } from 'react-native';
 
 import { MonoText } from '../components/StyledText';
 
 export default class HomeScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      pickerValue:''
+    }
+  }
   static navigationOptions = {
     header: null,
   };
@@ -39,24 +47,40 @@ export default class HomeScreen extends React.Component {
             <View style={styles.searchBar}>
               <Image source={require('../assets/images/search.png')}
                 style={styles.icon} resizeMode='contain' />
-              <Text style={styles.searchBarText}>Burgers</Text>
+              <TextInput
+                style={styles.searchBarText}
+                placeholder="Food, Food Type (Italian, American...), etc."
+                onChangeText={(text) => this.setState({text})}
+              />
             </View>
             <View style={styles.searchBar}>
               <Image source={require('../assets/images/location_icon.png')}
                 style={styles.icon} resizeMode='contain' />
-              <Text style={styles.searchBarText}>
-              Financial District, Manhattan, NY</Text>
+              <TextInput
+                style={styles.searchBarText}
+                placeholder="Location"
+                onChangeText={(text) => this.setState({text})}
+              />
             </View>
             <View style={styles.searchBar}>
               <Image source={require('../assets/images/plant_based_icon.png')}
                 style={styles.icon} resizeMode='contain' />
-              <Text style={styles.searchBarText}>Vegetarian</Text>
+              <Picker
+                selectedValue={this.state.pickerValue}
+                style={styles.searchBarText}
+                onValueChange={(itemValue, itemIndex) =>
+                    this.setState({pickerValue: itemValue})
+                }>
+                <Picker.Item label="Select an Option" value=""/>
+                <Picker.Item label="Vegetarian" value="vegetarian" />
+                <Picker.Item label="Vegan" value="vegan" />
+              </Picker>
             </View>
           </View>
         </View>
 
         {/* NEWS SECTION ON BOTTOM */}
-        <ScrollView style={styles.news, styles.pad}>
+        <ScrollView style={styles.veggieNews, styles.pad}>
           <Text style={styles.title}>Veggie News</Text>
           <View style={styles.promotion}>
             <Image source={
@@ -130,7 +154,7 @@ const styles = StyleSheet.create({
   },
   searchBarText: {
     flex: 8,
-    fontSize: 10,
+    fontSize: 15,
   },
   title: {
     textAlign: 'center',
@@ -150,7 +174,7 @@ const styles = StyleSheet.create({
     height: undefined,
     width: undefined,
   },
-  news: {
+  veggieNews: {
     color: '#fff',
     flex: 1
   }
