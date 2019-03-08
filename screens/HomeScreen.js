@@ -66,8 +66,12 @@ export default class HomeScreen extends React.Component {
             </View>
             <View style={styles.searchBar}>
               <Text style={styles.dietSelectionText}>Diet Selection:</Text>
-              <Text style={[styles.veganText, styles.bold]}>Vegan</Text>
-              <Text style={styles.vegetarianText}>Vegetarian</Text>
+              <Text
+                onPress={this.veganSelection}
+                style={{flex: 1, fontSize: 15, marginTop: 5, textAlign: 'center', fontWeight: this.state.veganFontWeight}}>Vegan</Text>
+              <Text
+                onPress={this.vegetarianSelection}
+                style={{flex: 1, fontSize: 15, marginTop: 5, textAlign: 'center', fontWeight: this.state.vegetarianFontWeight}}>Vegetarian</Text>
             </View>
           </View>
         </View>
@@ -100,15 +104,15 @@ export default class HomeScreen extends React.Component {
   }
 
   veganSelection = () => {
-    this.setState({dietSelection: 'vegan'});
-    this.setState({veganFontWeight: 'bold'});
-    this.setState({vegetarianFont: 'normal'})
+    this.setState({dietSelection: 'vegan'})
+    this.setState({veganFontWeight: 'bold'})
+    this.setState({vegetarianFontWeight: 'normal'})
   }
 
   vegetarianSelection = () => {
-    this.setState({dietSelection: 'vegetarian'});
-    this.setState({veganFontWeight: 'normal'});
-    this.setState({vegetarianFont: 'bold'})
+    this.setState({dietSelection: 'vegetarian'})
+    this.setState({veganFontWeight: 'normal'})
+    this.setState({vegetarianFontWeight: 'bold'})
   }
 }
 
@@ -188,23 +192,5 @@ const styles = StyleSheet.create({
     padding: 5,
     fontSize: 15,
     marginLeft: 8
-  },
-  veganText: {
-    flex: 1,
-    fontSize: 15,
-    marginTop: 5,
-    textAlign: 'center'
-  },
-  vegetarianText: {
-    flex: 1,
-    fontSize: 15,
-    marginTop: 5,
-    textAlign: 'center'
-  },
-  bold: {
-    fontWeight: 'bold'
-  },
-  normal: {
-    fontWeight: 'normal'
   }
 });
